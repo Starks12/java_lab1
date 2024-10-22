@@ -5,6 +5,9 @@ import java.util.Objects;
 public class Category implements Comparable<Category> {
     private String name;
 
+    // Default constructor for Jackson
+    public Category() {}
+
     public Category(String name) {
         this.name = name;
     }
@@ -13,9 +16,13 @@ public class Category implements Comparable<Category> {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
-        return "Category{name='" + name + "'}"; // Правильний формат виходу
+        return "Category{name='" + name + "'}"; // Correct output format
     }
 
     @Override
@@ -33,6 +40,6 @@ public class Category implements Comparable<Category> {
 
     @Override
     public int compareTo(Category o) {
-        return this.name.compareTo(o.name); // Порівняння за назвою
+        return this.name.compareTo(o.name); // Comparison by name
     }
 }

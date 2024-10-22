@@ -10,9 +10,13 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.14.0'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.0'
 //    https://mvnrepository.com/artifact/org.testng/testng
     testImplementation("org.testng:testng:7.10.2")
 }
+
 
 tasks.test {
     useTestNG()

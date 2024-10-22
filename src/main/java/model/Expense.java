@@ -1,4 +1,5 @@
 package model;
+
 import java.util.Objects;
 
 public class Expense implements Comparable<Expense> {
@@ -6,6 +7,10 @@ public class Expense implements Comparable<Expense> {
     private String description;
     private Category category;
 
+    // Default constructor for Jackson
+    public Expense() {}
+
+    // Builder class for constructing Expense instances
     public static class Builder {
         private double amount;
         private String description;
@@ -31,12 +36,14 @@ public class Expense implements Comparable<Expense> {
         }
     }
 
+    // Constructor for Builder
     private Expense(Builder builder) {
         this.amount = builder.amount;
         this.description = builder.description;
         this.category = builder.category;
     }
 
+    // Getters
     public double getAmount() {
         return amount;
     }
