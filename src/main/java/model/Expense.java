@@ -17,16 +17,25 @@ public class Expense implements Comparable<Expense> {
         private Category category;
 
         public Builder setAmount(double amount) {
+            if (amount <= 0) {
+                throw new IllegalArgumentException("Amount must be greater than 0.");
+            }
             this.amount = amount;
             return this;
         }
 
         public Builder setDescription(String description) {
+            if (description == null || description.trim().isEmpty()) {
+                throw new IllegalArgumentException("Description cannot be null or empty.");
+            }
             this.description = description;
             return this;
         }
 
         public Builder setCategory(Category category) {
+            if (category == null || category.getName() == null || category.getName().trim().isEmpty()) {
+                throw new IllegalArgumentException("Category cannot be null and name cannot be empty.");
+            }
             this.category = category;
             return this;
         }

@@ -32,4 +32,30 @@ public class CategoryTest {
         assertTrue(category1.compareTo(category2) < 0, "category1 should be less than category2");
         assertTrue(category2.compareTo(category1) > 0, "category2 should be greater than category1");
     }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testCategoryCreationWithNullName() {
+        // Attempt to create a category with null name
+        new Category(null);
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testCategoryCreationWithEmptyName() {
+        // Attempt to create a category with empty name
+        new Category("");
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testSetNameWithNull() {
+        // Create a category and attempt to set null name
+        Category category = new Category("Valid");
+        category.setName(null);
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testSetNameWithEmpty() {
+        // Create a category and attempt to set empty name
+        Category category = new Category("Valid");
+        category.setName("");
+    }
 }

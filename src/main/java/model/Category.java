@@ -9,6 +9,9 @@ public class Category implements Comparable<Category> {
     public Category() {}
 
     public Category(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Category name cannot be null or empty.");
+        }
         this.name = name;
     }
 
@@ -17,6 +20,9 @@ public class Category implements Comparable<Category> {
     }
 
     public void setName(String name) {
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Category name cannot be null or empty.");
+        }
         this.name = name;
     }
 

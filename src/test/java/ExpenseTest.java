@@ -79,4 +79,40 @@ public class ExpenseTest {
         assertTrue(expense1.compareTo(expense2) < 0, "expense1 should be less than expense2");
         assertTrue(expense2.compareTo(expense1) > 0, "expense2 should be greater than expense1");
     }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testExpenseCreationWithNegativeAmount() {
+        // Create a category
+        Category food = new Category("Food");
+
+        // Attempt to create an expense with a negative amount
+        new Expense.Builder()
+                .setAmount(-10.50)
+                .setDescription("Invalid expense")
+                .setCategory(food)
+                .build();
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testExpenseCreationWithEmptyDescription() {
+        // Create a category
+        Category food = new Category("Food");
+
+        // Attempt to create an expense with an empty description
+        new Expense.Builder()
+                .setAmount(10.50)
+                .setDescription("")
+                .setCategory(food)
+                .build();
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testExpenseCreationWithNullCategory() {
+        // Attempt to create an expense with a null category
+        new Expense.Builder()
+                .setAmount(10.50)
+                .setDescription("Lunch")
+                .setCategory(null)
+                .build();
+    }
 }
